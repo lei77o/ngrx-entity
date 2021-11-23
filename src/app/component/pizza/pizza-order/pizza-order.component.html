@@ -1,0 +1,19 @@
+<h1> Welcome to Ngrx Pizza Order</h1>
+<div class="text-center">
+     <div *ngFor="let pizza of pizzas | async">
+         <div *ngIf="pizza != null">
+            <h3>Pizza ID: {{pizza?.id}}</h3>
+            <h5>Size: {{ pizza?.size }}</h5>
+             
+        <div *ngIf="pizza?.size === 'small'">
+            <img src="./assets/img/pizza-1.jpg" >
+        </div>
+        <img src="./assets/img/pizza-2.jpg" *ngIf="pizza?.size === 'large'">
+        <!--<button type="button" class="btn btn-warning" *ngIf="pizza.size === 'small'" (click)="updatePizza(piza.id, 'large')"> Upgrade to Large   </button>-->
+        <!--<button type="button" class="btn btn-warning" *ngIf="pizza.size === 'large'" (click)="updatePizza(piza.id, 'small')"> Downgrade to Large   </button>-->
+        <button type="button" class="btn btn-danger" (click)="deletePizza(pizza?.id)">Delete</button>
+        </div>    
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="createPizza()">Create Pizza</button>
+</div>
